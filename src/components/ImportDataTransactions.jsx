@@ -1,38 +1,31 @@
 /** @format */
 
 import React from "react";
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
 import { useCSVReader } from "react-papaparse";
 
 const ImportDataTransactions = () => {
   const { CSVReader } = useCSVReader();
-  const baseUrl = "https://61cdc8267067f600179c5c46.mockapi.io/transactions";
-
-  const fetchDataTransactions = (transactions) => {
-    return fetch(baseUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(transactions),
-    }).then((respone) => {
-      if (!respone.ok) {
-        throw new Error("HEXYSI");
-      }
-    });
-  };
 
   return (
     <>
       <CSVReader
         config={{ header: true }}
         onUploadAccepted={(results) => {
+          const mock = new MockAdapter(axios);
+
+          mock.onGet("/transactions").reply(200, {
+            transactions: results.data,
+          });
+          mock.onPost("/transactions").reply(function (config) {
+            return axios.get("/transactions");
+          });
+
           console.log("---------------------------");
           console.log(results);
           console.log("---------------------------");
-          results.data.map((data) =>
-            setTimeout(fetchDataTransactions(data), 1000)
-          );
         }}
       >
         {({ getRootProps, acceptedFile }) => (
