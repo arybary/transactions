@@ -1,13 +1,16 @@
-import React from 'react';
+/** @format */
+
+import React from "react";
+import ExportDataTransactions from "./components/ExportDataTransactions";
+import ImportDataTransactions from "./components/ImportDataTransactions";
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-      </header>
-    </div>
+    <>
+      <ImportDataTransactions />
+      <ExportDataTransactions />
+    </>
   );
 }
 
