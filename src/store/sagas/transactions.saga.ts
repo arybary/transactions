@@ -13,13 +13,13 @@ const getTransactions = () => axios.get<ITransaction[]>("/transactions");
 
 function* fetchTransactionsSaga() {
   try {
-    const response:AxiosResponse<ITransaction[]> = yield call(getTransactions);
+    const response: AxiosResponse<ITransaction[]> = yield call(getTransactions);
     yield put(
       fetchTransactionsSuccess({
         transactions: response.data as ITransaction[],
       })
     );
-  } catch (e) {
+  } catch (e: any) {
     yield put(
       fetchTransactionsFailure({
         error: e.message as string,

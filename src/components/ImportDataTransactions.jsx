@@ -16,12 +16,7 @@ const ImportDataTransactions = () => {
         onUploadAccepted={(results) => {
           const mock = new MockAdapter(axios);
 
-          mock.onGet("/transactions").reply(200, {
-            transactions: results.data,
-          });
-          mock.onPost("/transactions").reply(function (config) {
-            return axios.get("/transactions");
-          });
+          mock.onAny("/transactions").reply(200, results.data);
 
           console.log("---------------------------");
           console.log(results);
