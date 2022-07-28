@@ -9,7 +9,7 @@ import {
 } from "../actions/transactions.actions";
 import { transactionsTypes } from "../types/transactions.types";
 
-const getTransactions = () => axios.get<ITransaction[]>("/transactions");
+const getTransactions = () => axios.get<ITransaction[]>("/trans");
 
 function* fetchTransactionsSaga() {
   try {

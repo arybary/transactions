@@ -10,9 +10,13 @@ const initialState: TransactionsState = {
   pending: false,
   transactions: [],
   error: null,
+  filter: { filterColum: "", filterColumName: "" },
 };
 
-const transactionsReduser = (state = initialState, action: TransactionsActions) => {
+const transactionsReduser = (
+  state = initialState,
+  action: TransactionsActions
+) => {
   switch (action.type) {
     case transactionsTypes.FETCH_TRANSACTIONS_REQUEST:
       return {
@@ -33,6 +37,32 @@ const transactionsReduser = (state = initialState, action: TransactionsActions) 
         transactions: [],
         error: action.payload.error,
       };
+    case transactionsTypes.DELETE_TRANSACTION: {
+      const newState = { ...state };
+      newState.transactions = newState.transactions.filter(
+        (trans: any) => trans.TransactionId !== action.payload.id
+      );
+      return newState;
+    }
+    case transactionsTypes.CHANGE_STATUS_TRANSACTION: {
+      const newState = { ...state };
+      const { id, statusSelect } = action.payload;
+      newState.transactions = newState.transactions.map((trans: any) =>
+        trans.TransactionId === id
+          ? { ...trans, ...{ Status: statusSelect } }
+          : trans
+      );
+      return newState;
+    }
+    case transactionsTypes.FILTER_TRANSACTIONS: {
+      const { filterColum, filterColumName } = action.payload;
+      console.log(action.payload);
+      return {
+        ...state,
+
+        filter: action.payload,
+      };
+    }
     default:
       return {
         ...state,
