@@ -25,7 +25,7 @@ const ActionTransactionsDelete: React.FC<TransactionID> = ({ id }) => {
       </Button>
       <div>
         <Collapse in={open} dimension="width">
-          <div id="example-collapse-text" style={{ position: "absolute" }}>
+          <div id="example-collapse-text" style={{ position: "relative" }}>
             <Card body>
               Do you want to Delete this TransactionId:{id}?
               <ButtonGroup size="sm">

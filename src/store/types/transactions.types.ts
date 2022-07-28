@@ -1,6 +1,5 @@
 /** @format */
 
-import { Interface } from "readline";
 import { ITransaction } from "../../models/ITransaction";
 
 export enum transactionsTypes {
@@ -16,7 +15,7 @@ export interface TransactionsState {
   pending: boolean;
   transactions: ITransaction[];
   error: string | null;
-  filter: { filterColum: string; filterColumName: string };
+  filter: { filterStatus: string; filterType: string };
 }
 
 export interface FetchTransactionsSuccessPayload {
@@ -36,8 +35,8 @@ export interface ChangeStatusTransactionIdPayload {
 }
 
 export interface FilterTransactionPayload {
-  filterColum: string;
-  filterColumName: string;
+  filterStatus: string;
+  filterType: string;
 }
 export interface FetchTransactionsRequest {
   type: typeof transactionsTypes.FETCH_TRANSACTIONS_REQUEST;

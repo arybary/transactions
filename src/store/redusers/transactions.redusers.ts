@@ -10,7 +10,7 @@ const initialState: TransactionsState = {
   pending: false,
   transactions: [],
   error: null,
-  filter: { filterColum: "", filterColumName: "" },
+  filter: { filterStatus: "", filterType: "" },
 };
 
 const transactionsReduser = (
@@ -55,7 +55,7 @@ const transactionsReduser = (
       return newState;
     }
     case transactionsTypes.FILTER_TRANSACTIONS: {
-      const { filterColum, filterColumName } = action.payload;
+    
       console.log(action.payload);
       return {
         ...state,

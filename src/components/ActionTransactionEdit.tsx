@@ -26,9 +26,6 @@ const ActionTransactionsEdit: React.FC<TransactionID> = ({ id }) => {
     setShow(false);
     setStatusSelected("");
   };
-
-  console.log(statusSelected);
-
   return (
     <>
       <Button variant="info" onClick={handleShow}>

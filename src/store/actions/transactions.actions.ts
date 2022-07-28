@@ -43,9 +43,9 @@ export const statusTransaction = (
 });
 
 export const filterTransaction = (
-  filterColum: string,
-  filterColumName: string
+  filterStatus: string,
+  filterType: string
 ): TransactionsActions => ({
   type: transactionsTypes.FILTER_TRANSACTIONS,
-  payload: { filterColum, filterColumName },
+  payload: { filterStatus, filterType},
 });

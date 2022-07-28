@@ -12,13 +12,18 @@ export const filterTransactionsDataSelector = (state: RootState) =>
 export const TransactionsData = createSelector(
   [transactionsDataSelector, filterTransactionsDataSelector],
   (transactions, filter) => {
-    const { filterColum, filterColumName } = filter;
-    if (filterColum === "") {
+    const { filterStatus, filterType } = filter;
+    if (filterStatus === "" && filterType === "") {
       return transactions;
-    } else
-      return transactions.filter((trans: any) => {
-        console.log(trans.filterColum, filterColumName);
-        return trans[filterColum] === filterColumName;
+    }
+    return transactions
+      .filter((trans: any) => {
+        console.log(trans.Status, filterStatus);
+        return filterStatus === "" ? true : trans.Status === filterStatus;
+      })
+      .filter((trans: any) => {
+        console.log(trans.Type, filterType);
+        return filterType === "" ? true : trans.Type === filterType;
       });
   }
 );

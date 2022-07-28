@@ -6,7 +6,6 @@ import ExportDataTransactions from "./components/ExportDataTransactions";
 import ImportDataTransactions from "./components/ImportDataTransactions";
 import TableTransactions from "./components/TableTransactions";
 import store from "./store/store";
-import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import FilterTransaction from "./components/FilterTransaction";
@@ -18,13 +17,13 @@ const App: React.FC = () => (
       aria-label="Toolbar with Button groups"
     >
       <ButtonGroup aria-label="First group">
-       <FilterTransaction />
-       </ButtonGroup>
+        <FilterTransaction />
+      </ButtonGroup>
       <ButtonGroup aria-label="First group">
-      <ButtonGroup aria-label="First group">
-          <ImportDataTransactions />      
+        <ButtonGroup aria-label="First group">
+          <ImportDataTransactions />
           <ExportDataTransactions />
-       </ButtonGroup>
+        </ButtonGroup>
       </ButtonGroup>
     </ButtonToolbar>
     <TableTransactions />
