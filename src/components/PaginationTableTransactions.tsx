@@ -26,7 +26,7 @@ const PaginationTableTransactions: React.FC<PaginationTransactions> = ({
       {pagination.fill("num").map((el, i) => {
         const active =
           numberPage === i + 1
-            ? { border: "4px solid grey", fontWeight: "bold" }
+            ? { border: "4px solid black", fontWeight: "bold" }
             : { border: "4px solid silver" };
         return (
           <Pagination.Item
