@@ -19,12 +19,8 @@ const App: React.FC = () => (
         <ImportDataTransactions />
         <ExportDataTransactions />
       </div>
-    </header>
-    <body>
-      <div>
+    </header>  
       <TableTransactions />
-      </div>
-    </body>
   </Provider>
 );
 
