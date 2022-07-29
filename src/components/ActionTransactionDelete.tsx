@@ -27,18 +27,17 @@ const ActionTransactionsDelete: React.FC<TransactionID> = ({ id }) => {
           <div
             id="example-collapse-text"
             style={{
-              position: "absolute",
-              padding: "2px 10px",
+              position: "absolute",            
+              margin:"-70px 10px ",
               borderRadius: 10,
             }}
           >
             <Card bg="light" className="mb-2">
-              <Card.Header>
-                <Card.Title>TRANSACTION</Card.Title>
+              <Card.Header>             
                 <Card.Subtitle>ID:{id}</Card.Subtitle>
               </Card.Header>
               <Card.Body>
-                <Card.Text>Do you want delete ?</Card.Text>
+                <Card.Text>delete ?</Card.Text>
               </Card.Body>
               <ButtonGroup>
                 <Button variant="outline-danger" onClick={onDelete}>
