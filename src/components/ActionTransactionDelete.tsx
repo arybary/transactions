@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-
 import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { useActions } from "../store/useActions";
@@ -40,19 +39,18 @@ const ActionTransactionsDelete: React.FC<TransactionID> = ({ id }) => {
               </Card.Header>
               <Card.Body>
                 <Card.Text>Do you want delete ?</Card.Text>
-                </Card.Body>
-                <ButtonGroup>
-                  <Button variant="outline-danger" onClick={onDelete}>
-                    Yes
-                  </Button>
-                  <Button
-                    variant="outline-success"
-                    onClick={() => setOpen(!open)}
-                  >
-                    No
-                  </Button>
-                </ButtonGroup>
-              
+              </Card.Body>
+              <ButtonGroup>
+                <Button variant="outline-danger" onClick={onDelete}>
+                  Yes
+                </Button>
+                <Button
+                  variant="outline-success"
+                  onClick={() => setOpen(!open)}
+                >
+                  No
+                </Button>
+              </ButtonGroup>
             </Card>
           </div>
         </Collapse>

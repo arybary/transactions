@@ -19,7 +19,7 @@ const FilterTransaction: React.FC = () => {
   const styleFilter = {
     height: "40px",
     backgroundColor: "silver",
-    border: "thick double white",    
+    border: "thick double white",
     fontWeight: "bold",
   };
 

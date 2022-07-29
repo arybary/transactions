@@ -6,9 +6,6 @@ import ExportDataTransactions from "./components/ExportDataTransactions";
 import ImportDataTransactions from "./components/ImportDataTransactions";
 import TableTransactions from "./components/TableTransactions";
 import store from "./store/store";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-import FilterTransaction from "./components/FilterTransaction";
 import "./App.scss";
 
 const App: React.FC = () => (
@@ -19,8 +16,8 @@ const App: React.FC = () => (
         <ImportDataTransactions />
         <ExportDataTransactions />
       </div>
-    </header>  
-      <TableTransactions />
+    </header>
+    <TableTransactions />
   </Provider>
 );
 

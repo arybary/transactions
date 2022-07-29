@@ -47,5 +47,5 @@ export const filterTransaction = (
   filterType: string
 ): TransactionsActions => ({
   type: transactionsTypes.FILTER_TRANSACTIONS,
-  payload: { filterStatus, filterType},
+  payload: { filterStatus, filterType },
 });

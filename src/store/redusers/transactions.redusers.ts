@@ -55,7 +55,6 @@ const transactionsReduser = (
       return newState;
     }
     case transactionsTypes.FILTER_TRANSACTIONS: {
-    
       console.log(action.payload);
       return {
         ...state,
