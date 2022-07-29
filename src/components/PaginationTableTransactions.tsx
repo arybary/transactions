@@ -21,15 +21,14 @@ const PaginationTableTransactions: React.FC<PaginationTransactions> = ({
   pagination.length = lastPage;
 
   return (
-    <Pagination className="d-flex justify-content-center" >
+    <Pagination className="d-flex justify-content-center">
       <Pagination.Prev onClick={handlePreviosPage} disabled={numberPage <= 1} />
       {pagination.fill("num").map((el, i) => {
         const active = numberPage === i + 1 ? "4px solid grey" : "none";
-        console.log(active);
         return (
           <Pagination.Item
             key={i}
-            style={{ border: active,margin:"2px"}}
+            style={{ border: active, margin: "2px" }}
             onClick={handleNumberPage}
             disabled={numberPage === i + 1}
           >

@@ -28,15 +28,15 @@ const TableTransactions: React.FC = () => {
   const handlePreviosPage = () => setNumberPage(numberPage - 1);
   const trans = transactions.slice(itemOffset, endOffset);
 
-  console.log(transactions);
   return (
     <>
-      {transactions.length!==0 && (
-        <><FilterTransaction />
-          <Table striped bordered hover >
+      {transactions.length !== 0 && (
+        <>
+          <FilterTransaction />
+          <Table striped bordered hover>
             <thead>
               <tr>
-                <th>#</th>                
+                <th>#</th>
                 <th>Status</th>
                 <th>Type</th>
                 <th>ClientName</th>
