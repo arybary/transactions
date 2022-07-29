@@ -1,4 +1,4 @@
-# LINK App[LINK App](https://stellular-pastelito-4c01e5.netlify.app/)
+# [LINK App](https://stellular-pastelito-4c01e5.netlify.app/)
 
 # Getting Started with Create React App
 
