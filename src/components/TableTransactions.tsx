@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import TableRowTransactions from "./TableRowTransactions";
 import { TransactionsData } from "../store/selectors/transactions.selector";
 import PaginationTableTransactions from "./PaginationTableTransactions";
+import FilterTransaction from "./FilterTransaction";
 
 const TableTransactions: React.FC = () => {
   const transactions = useTypedSelector(TransactionsData);
@@ -30,18 +31,18 @@ const TableTransactions: React.FC = () => {
   console.log(transactions);
   return (
     <>
-      {transactions.length && (
-        <>
-          <Table striped bordered hover>
+      {transactions.length!==0 && (
+        <><FilterTransaction />
+          <Table striped bordered hover >
             <thead>
               <tr>
-                <th>#</th>
-                <th>Id</th>
+                <th>#</th>                
                 <th>Status</th>
                 <th>Type</th>
                 <th>ClientName</th>
                 <th>Amount</th>
                 <th>Action</th>
+                <th>Id</th>
               </tr>
             </thead>
             <tbody>

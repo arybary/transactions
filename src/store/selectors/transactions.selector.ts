@@ -16,14 +16,13 @@ export const TransactionsData = createSelector(
     if (filterStatus === "" && filterType === "") {
       return transactions;
     }
-    return transactions
+    const transactionsByFilter = transactions
       .filter((trans: any) => {
-        console.log(trans.Status, filterStatus);
         return filterStatus === "" ? true : trans.Status === filterStatus;
       })
       .filter((trans: any) => {
-        console.log(trans.Type, filterType);
         return filterType === "" ? true : trans.Type === filterType;
       });
+    return transactionsByFilter;
   }
 );

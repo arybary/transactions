@@ -6,7 +6,7 @@ import ActionTransactionsEdit from "./ActionTransactionEdit";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 interface Transaction {
-  nomer:number,
+  nomer: number;
   TransactionId: string;
   Status: string;
   Type: string;
@@ -14,26 +14,27 @@ interface Transaction {
   Amount: string;
 }
 
-const TableRowTransactions: React.FC<Transaction> = ({nomer,
+const TableRowTransactions: React.FC<Transaction> = ({
+  nomer,
   TransactionId,
   Status,
   Type,
   ClientName,
   Amount,
 }) => (
-  <tr >
-    <td>{nomer+1}</td>
-    <td>{TransactionId}</td>
+  <tr>
+    <td>{nomer + 1}</td>
     <td>{Status}</td>
     <td>{Type}</td>
     <td>{ClientName}</td>
     <td>{Amount}</td>
     <td>
-    <ButtonGroup size="sm">
-      <ActionTransactionsEdit id={TransactionId}/>
-      <ActionTransactionsDelete id={TransactionId} />
+      <ButtonGroup size="sm">
+        <ActionTransactionsEdit id={TransactionId} />
+        <ActionTransactionsDelete id={TransactionId} />
       </ButtonGroup>
     </td>
+    <td>{TransactionId}</td>
   </tr>
 );
 

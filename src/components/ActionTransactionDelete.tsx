@@ -25,20 +25,34 @@ const ActionTransactionsDelete: React.FC<TransactionID> = ({ id }) => {
       </Button>
       <div>
         <Collapse in={open} dimension="width">
-          <div id="example-collapse-text" style={{ position: "relative" }}>
-            <Card body>
-              Do you want to Delete this TransactionId:{id}?
-              <ButtonGroup size="sm">
-                <Button variant="outline-danger" onClick={onDelete}>
-                  Yes
-                </Button>
-                <Button
-                  variant="outline-success"
-                  onClick={() => setOpen(!open)}
-                >
-                  No
-                </Button>
-              </ButtonGroup>
+          <div
+            id="example-collapse-text"
+            style={{
+              position: "absolute",
+              padding: "2px 10px",
+              borderRadius: 10,
+            }}
+          >
+            <Card bg="light" className="mb-2">
+              <Card.Header>
+                <Card.Title>TRANSACTION</Card.Title>
+                <Card.Subtitle>ID:{id}</Card.Subtitle>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>Do you want delete ?</Card.Text>
+                </Card.Body>
+                <ButtonGroup>
+                  <Button variant="outline-danger" onClick={onDelete}>
+                    Yes
+                  </Button>
+                  <Button
+                    variant="outline-success"
+                    onClick={() => setOpen(!open)}
+                  >
+                    No
+                  </Button>
+                </ButtonGroup>
+              
             </Card>
           </div>
         </Collapse>

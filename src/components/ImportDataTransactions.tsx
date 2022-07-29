@@ -5,6 +5,8 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import { useCSVReader } from "react-papaparse";
 import { useActions } from "../store/useActions";
+import Button from "react-bootstrap/Button";
+import Badge from "react-bootstrap/Badge";
 
 const ImportDataTransactions: React.FC = () => {
   const { fetchTransactionsRequest } = useActions();
@@ -12,6 +14,15 @@ const ImportDataTransactions: React.FC = () => {
 
   return (
     <>
+      <style type="text/css">
+        {`
+.btn-import {
+  background-color: green;
+  color: white;
+  border-radius:30px 0 0 30px;
+  margin:5px;
+ `}
+      </style>
       <CSVReader
         config={{ header: true }}
         onUploadAccepted={(results: any) => {
@@ -22,10 +33,12 @@ const ImportDataTransactions: React.FC = () => {
       >
         {({ getRootProps, acceptedFile }: any) => (
           <>
-            <span>{acceptedFile && `File name: ${acceptedFile.name}   .`}</span>
-            <button variant="outline-success" {...getRootProps()}>
-              IMPORT
-            </button>
+            <Badge bg="secondary">
+              {acceptedFile && `File name: ${acceptedFile.name}`}
+            </Badge>
+            <Button variant="import" {...getRootProps()}>
+              import
+            </Button>
           </>
         )}
       </CSVReader>
