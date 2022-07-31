@@ -6,10 +6,14 @@ import TableRowTransactions from "./TableRowTransactions";
 import { TransactionsData } from "../store/selectors/transactions.selector";
 import PaginationTableTransactions from "./PaginationTableTransactions";
 import FilterTransaction from "./FilterTransaction";
+import { RootState } from "../store/store";
 
 const TableTransactions: React.FC = () => {
   const transactions = useTypedSelector(TransactionsData);
   const [numberPage, setNumberPage] = useState(1);
+  const { pending, error } = useTypedSelector(
+    (state: RootState) => state.transactions
+  );
 
   const amountTransOnPage = 10;
   const lastPage = Math.ceil(transactions.length / amountTransOnPage);
@@ -30,41 +34,47 @@ const TableTransactions: React.FC = () => {
 
   return (
     <>
-      {transactions.length !== 0 && (
-        <>
-          <FilterTransaction />
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Status</th>
-                <th>Type</th>
-                <th>ClientName</th>
-                <th>Amount</th>
-                <th>Action</th>
-                <th>Id</th>
-              </tr>
-            </thead>
-            <tbody>
-              {trans.map((trans: any, i: number) => {
-                return (
-                  <TableRowTransactions
-                    key={trans.TransactionId}
-                    {...trans}
-                    nomer={i + amountTransOnPage * (Number(numberPage) - 1)}
-                  />
-                );
-              })}
-            </tbody>
-          </Table>
-          <PaginationTableTransactions
-            numberPage={numberPage}
-            lastPage={lastPage}
-            handlePreviosPage={handlePreviosPage}
-            handleNumberPage={handleNumberPage}
-            handleNextPage={handleNextPage}
-          />
-        </>
+      {pending ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>Error</div>
+      ) : (
+        transactions.length !== 0 && (
+          <>
+            <FilterTransaction />
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Status</th>
+                  <th>Type</th>
+                  <th>ClientName</th>
+                  <th>Amount</th>
+                  <th>Action</th>
+                  <th>Id</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trans.map((trans: any, i: number) => {
+                  return (
+                    <TableRowTransactions
+                      key={trans.TransactionId}
+                      {...trans}
+                      nomer={i + amountTransOnPage * (Number(numberPage) - 1)}
+                    />
+                  );
+                })}
+              </tbody>
+            </Table>
+            <PaginationTableTransactions
+              numberPage={numberPage}
+              lastPage={lastPage}
+              handlePreviosPage={handlePreviosPage}
+              handleNumberPage={handleNumberPage}
+              handleNextPage={handleNextPage}
+            />
+          </>
+        )
       )}
     </>
   );
