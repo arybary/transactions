@@ -18,17 +18,19 @@ const FilterTransaction: React.FC = () => {
   };
   const styleFilter = {
     height: "40px",
-    backgroundColor: "silver",   
+    backgroundColor: "silver",
     fontWeight: "bold",
+    borderRadius: "0 30px 30px 0",
   };
 
   const styleNameFilter = {
     backgroundColor: "green",
     color: "white",
     fontWeight: "bold",
-    margin:"5px",
-    padding:"10px",
+    margin: "5px 0 5px 5px",
+    padding: "10px",
     border: "thick double white",
+    borderRadius: "30px 0 0 30px",
   };
   return (
     <>
