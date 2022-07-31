@@ -42,7 +42,7 @@ const TableTransactions: React.FC = () => {
         transactions.length !== 0 && (
           <>
             <FilterTransaction />
-            <Table striped bordered hover>
+            <Table striped bordered hover >
               <thead>
                 <tr>
                   <th>#</th>
