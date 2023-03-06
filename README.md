@@ -1,5 +1,7 @@
 # [LINK App](https://stellular-pastelito-4c01e5.netlify.app/)
 
+For example file data.csv
+
 data.csv - file with data
 
 # Getting Started with Create React App
