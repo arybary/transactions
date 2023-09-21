@@ -11,7 +11,7 @@ import "./App.scss";
 const App: React.FC = () => (
   <Provider store={store}>
     <header>
-      <h3>TRABSACTION management</h3>
+      <h3>TRANSACTION management</h3>
       <div>
         <ImportDataTransactions />
         <ExportDataTransactions />
